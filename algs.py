@@ -11,8 +11,14 @@ def rotate(arr,k):
     else:
         # if we don't iterate with a number, but with an array,
         # let's try a while loop
+
         while k > 0:
-            tmp = arr[:-1]
-            arr[:-1] = arr[0]
-            arr[0] = tmp
-            k = k+1
+            last_ele = arr[-2:-1] # -2 is second last, -1 is last
+            arr = arr[:-1] # ignore the last element by triming it off
+            arr.append(last_ele) # append puts stuff at FRONT
+
+            k = k-1
+
+    return arr
+
+print (rotate([1,2,3,4],2))
